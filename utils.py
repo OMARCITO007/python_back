@@ -140,7 +140,7 @@ def get_all_tables_records(token: str, connection_1: mysql.connector.connection.
         columns_info = cursor_1.fetchall()
         columns = [column['Field'] for column in columns_info]
         columns_except_id = [column for column in columns if column.lower() != 'id']
-        columns_str = ', '.join(columns_except_id)
+        columns_str = ', '.join(columns)
         sql_query = f"SELECT {columns_str} FROM {table_name}"
         cursor_1.execute(sql_query)
         records = cursor_1.fetchall()
